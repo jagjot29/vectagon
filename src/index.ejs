@@ -1,0 +1,182 @@
+<!-- <?php
+include("connect.php");
+error_reporting(0);
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+          background-image: url('https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+
+        .container {
+          margin-top : 20px;
+        }
+
+        input[type="radio"]{
+          margin: 0 10px 0 10px;
+        }
+        </style>
+</head>
+<body onload="showBox()">
+
+<!-- <?php 
+session_start(); 
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+  $loggedin= true;
+}
+else{
+  $loggedin = false;
+}
+echo ' -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href=""><i class="fas fa-globe"></i> vectagon</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- '; -->
+
+      <!-- if(!$loggedin){
+      echo ' -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/"> <i class="fa fa-sign-in-alt"></i> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registration"><i class="fa fa-book"></i> Signup</a>
+      </li>
+      <!-- ';
+      }
+      if($loggedin){
+      echo ' -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/loginsystem/logout.php">Logout</a>
+      </li> -->
+      <!-- ';
+    }
+       
+      
+    echo ' -->
+  </ul>
+    
+  </div>
+</nav>
+<!-- ';
+?> -->
+    
+    <div class="container" style = "width : 600px">
+
+        <div class="card bg-light">
+        <article class="card-body mx-auto" >
+            <h4 class="card-title mt-3 text-center">Login</h4>
+            <p class="text-center">Login with your free account</p>
+            
+            <form style = "width : 300px" action = "/login"  method = "POST">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                 </div>
+                <input name="email" class="form-control" placeholder="Email address" type="email" required>
+            </div> <!-- form-group// -->
+
+
+
+    
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input name = "password" class="form-control" placeholder="Create password" type="password" required>
+            </div> 
+
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" name = "submit"> Login  </button>
+            </div> <!-- form-group// --> 
+            
+            <% if(locals.message){ %>
+              <div class="alert alert-danger" role="alert">
+                 <center><strong><%=message.fail%></strong></center>
+              </div>
+            <% } %>
+            
+              
+            <p class="text-center">Don't have an account? <a href="/registration">Register</a> </p>  
+            <div class="card-footer text-right">
+                <small>&copy; <i class="fas fa-globe"></i> vectagon</small>
+            </div>                                                               
+        </form>
+        </article>
+        </div> <!-- card.// -->
+        
+        </div> 
+        <!--container end.//--> 
+
+      <script type = "text/javascript" >  
+          function preventBack() { window.history.forward(); }  
+          setTimeout("preventBack()", 0);  
+          window.onunload = function () { null 
+          };  
+      </script> 
+        
+</body>
+</html>
+
+<!-- <?php
+$email = $_POST['email'];
+$password = $_POST['password'];
+$login = 0;
+$print = "";
+if($email != "" and $password != "")
+{
+  $sql="Select * from REGISTRATION;";
+  $records = mysqli_query($conn,$sql);
+  if($records)
+  {
+    while($data = mysqli_fetch_array($records))
+    {
+        if($data['email'] == $email and $data['password'] == $password)
+        {
+            $login = 1;
+            break;
+        }
+        else 
+        {
+            $login = 2;
+        }
+    }
+  }
+
+  if($login == 1)
+  {
+    echo '<script>alert("Log in Successfully")</script>';
+    header("Location: vectagon.html");
+    exit();
+  }
+  else if($login == 2)
+  {
+    echo '<script>alert("Invalid Email/Password. Have you Registered yet?!")</script>';
+  }
+  
+}
+?> -->
+
+
+
+
+

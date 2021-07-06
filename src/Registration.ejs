@@ -1,0 +1,206 @@
+<!-- <?php
+include("connect.php");
+error_reporting(0);
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+          background-image: url('https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+
+        .container {
+          margin-top : 20px;
+        }
+
+        input[type="radio"]{
+          margin: 0 10px 0 10px;
+        }
+        </style>
+</head>
+<body>
+
+<!-- <?php 
+session_start(); 
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+  $loggedin= true;
+}
+else{
+  $loggedin = false;
+}
+echo ' -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href=""><i class="fas fa-globe"></i> vectagon</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <!-- ';
+
+      if(!$loggedin){
+      echo ' -->
+      <li class="nav-item">
+      </i><a class="nav-link" href="/"><i class="fa fa-sign-in-alt"></i> Login</a>
+      </li>
+      <li class="nav-item active">
+      <a class="nav-link" href="/registration"><i class="fa fa-book"></i> Signup</a>
+      </li>
+      <!-- ';
+      }
+      if($loggedin){
+      echo ' -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/loginsystem/logout.php">Logout</a>
+      </li> -->
+      <!-- ';
+    }
+       
+      
+    echo ' -->
+  </ul>
+    
+  </div>
+</nav>
+<!-- ';
+?> -->
+
+    <div class="container" style = "width : 600px">
+
+        <div class="card bg-light">
+        <article class="card-body mx-auto" >
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Get started with your free account</p>
+            
+            <form style = "width : 300px" action = "/registration" method = "POST">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                 </div>
+                <input name="fullName" class="form-control" placeholder="Full name" type="text" required>
+            </div> <!-- form-group// -->
+            
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                 </div>
+                <input name="email" class="form-control" placeholder="Email address" type="email" required>
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-venus-mars"></i> </span>
+                    <!-- <select class="form-control"> -->
+                  </div> 
+                    <label for="male"> <input type="radio" name="gender" id="male" value = "m">Male</label>
+                    <label for="female" ><input type="radio" name="gender" id="female" value = "f">Female</label>
+                    <label for="other"> <input type="radio" name="gender" id="other" value = "o">Other</label>
+                <!-- </select> -->
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                </div>
+                <!-- <select class="custom-select" style="max-width: 120px;">
+                    <option value = "1">+91</option>
+                    <option value="2">+022</option>
+                </select> -->
+                <input name = "phone_num" class="form-control" placeholder="Phone number" type="text" required>
+            </div> <!-- form-group// -->
+    
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input name = "password" class="form-control" placeholder="Create password" type="password" required>
+            </div> <!-- form-group// -->
+
+          <!--  <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input name = "rpassword" class="form-control" placeholder="Repeat password" type="password">
+            </div> --> <!-- form-group// -->  
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" name = "submit"> Create Account  </button>
+            </div> <!-- form-group// -->      
+            <p class="text-center">Have an account? <a href="/">Log In</a> </p>  
+            <div class="card-footer text-right">
+                <small>&copy; <i class="fas fa-globe"></i> vectagon</small>
+            </div>                                                               
+        </form>
+        </article>
+        </div> <!-- card.// -->
+        
+        </div> 
+        <!--container end.//--> 
+          
+
+        <script type = "text/javascript" >  
+          function preventBack() { window.history.forward(); }  
+          setTimeout("preventBack()", 0);  
+          window.onunload = function () { null 
+          };  
+      </script>
+      
+</body>
+</html>
+
+<!-- <?php
+$fullName = $_POST['fullName'];
+$email = $_POST['email'];
+$gender = $_POST['gender'];
+$phone_num = $_POST['phone_num'];
+$password = $_POST['password'];
+$login = 0;
+if($fullName != NULL and $email != NULL and $gender != NULL and $phone_num != 0 and $password != NULL)
+{
+
+  $sql1="Select * from REGISTRATION;";
+  $records = mysqli_query($conn,$sql1);
+  if($records)
+  {
+    while($data = mysqli_fetch_array($records))
+    {
+        if($data['email'] == $email)
+        {
+            $login = 1;
+            echo '<script>alert("You have already registered with this email id.")</script>';
+            break;
+        }
+    }
+  }
+
+  if($login != 1)
+  {
+    $sql2="INSERT INTO REGISTRATION(fullName , email , gender , phone_num , password) VALUES ('$fullName','$email','$gender','$phone_num','$password');";
+
+    if(mysqli_query($conn,$sql2))
+    {
+      echo '<script>alert("Registration Successfull!")</script>';
+    }
+    else
+    {
+      echo '<script>alert("Sorry , please try again!")</script>';
+    }
+  }
+}
+?> -->
+
+
+
