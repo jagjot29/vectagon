@@ -146,8 +146,10 @@ app.post('/registration', async(req, res) => {
             // console.log('The data from beer table are: \n', rows)
             if (rows.length > 0){
                 console.log('Email id already registered!');
+                req.flash('success', 'Email id already registered!');
+                res.locals.message = req.flash(); 
                 connection.release()
-                res.redirect("registration")
+                res.render("registration")
             }
             else{
                 console.log('Success');
@@ -156,43 +158,23 @@ app.post('/registration', async(req, res) => {
         
                     if (!err) {
                         console.log(rows)
-                        console.log('Registration Successfull');  
-                        res.redirect("/")
+                        console.log('Registration Successfull'); 
+                        req.flash('success', 'Registration Successfull');
+                        res.locals.message = req.flash(); 
+                        res.render("registration")
                     } else {
                         console.log(err)
                         console.log('Registration Failed');                       
-                        res.redirect("registration")
+                        res.render("registration")
                     }
-        
-                    // if(err) throw err
-                    // console.log('The data from beer table are: \n', rows)
-                    // if (rows.length > 0){
-                    //     console.log('Registration Successfull');
-                        
-                    //     res.redirect("/")
-                    // }
-                    // else{
-                    //     console.log('Registration Failed');
-                        
-                    //     res.redirect("registration")
-                    // }
+
                 })
             }
         })
     })
 })
 
-function isAuthenticated(req, res, next) {
-    // do any checks you want to in here
-  
-    // CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
-    // you can do this however you want with whatever variables you set up
-    if (req.user.authenticated)
-        return next();
-  
-    // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
-    res.redirect('/');
-  }
+
 
 
 io.of( '/stream' ).on( 'connection', stream );
